@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="theme-color" content="#3355ff">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icon-192.png">
+<title>Inaro English</title>
+<link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&family=Lilita+One&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#f3f5ff;--card:#fff;--ink:#101842;--mute:#5b6490;--pri:#3355ff;--onpri:#fff;--sun:#ffc933;--ok:#1f9d57;--bad:#d9473c;--line:#d9defa;--g1:#3355ff;--g2:#7a3cff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c1030;--card:#171d4a;--ink:#eef0ff;--mute:#9aa4dc;--pri:#7f93ff;--onpri:#0c1030;--ok:#4cd08a;--bad:#ff7a6e;--line:#2a3270;--g1:#1b2a9e;--g2:#4a1f9e}}
+:root[data-theme="dark"]{--bg:#0c1030;--card:#171d4a;--ink:#eef0ff;--mute:#9aa4dc;--pri:#7f93ff;--onpri:#0c1030;--ok:#4cd08a;--bad:#ff7a6e;--line:#2a3270;--g1:#1b2a9e;--g2:#4a1f9e}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;background:var(--bg);color:var(--ink);font-family:Cairo,system-ui,"Segoe UI",Tahoma,sans-serif}
+main{max-width:480px;margin:0 auto;padding:14px 14px 120px}
+button,input,select{font:700 16px Cairo,system-ui,sans-serif;color:var(--ink)}
+button{cursor:pointer;transition:transform .12s}button:active{transform:scale(.96)}
+button:focus-visible,input:focus-visible,select:focus-visible{outline:3px solid var(--sun);outline-offset:2px}
+.hero{position:relative;overflow:hidden;border-radius:28px;padding:28px 18px 20px;text-align:center;color:#fff;background:linear-gradient(135deg,var(--g1),var(--g2),var(--g1));background-size:200% 200%}
+.hero>*{position:relative}
+.hero>.b{position:absolute;border-radius:50%;filter:blur(30px);opacity:.5}
+.b1{width:160px;height:160px;background:#ffc933;top:-50px;left:-40px}
+.b2{width:140px;height:140px;background:#ff5d8f;bottom:-40px;right:-30px}
+.mark{font:400 clamp(50px,16vw,76px)/.95 "Lilita One",system-ui,sans-serif;color:var(--sun);margin:0 0 10px;direction:ltr;text-shadow:0 4px 0 rgba(0,0,0,.18)}
+.ring{position:relative;width:128px;height:128px;margin:6px auto}
+.ring svg{width:100%;height:100%;transform:rotate(-90deg)}
+.ring circle{fill:none;stroke-width:9}
+.rt{stroke:rgba(255,255,255,.25)}.rf{stroke:var(--sun);stroke-linecap:round;transition:stroke-dashoffset 1.3s cubic-bezier(.2,.8,.2,1)}
+.ring div{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center}
+.ring b{font-size:26px;font-weight:900}.ring small{font-size:12px;opacity:.85}
+.chips{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin:10px 0 6px}
+.chips span{background:rgba(255,255,255,.18);padding:6px 12px;border-radius:99px;font-size:14px}
+.bar,.xb,.dots{height:8px;background:rgba(127,140,200,.25);border-radius:9px;overflow:hidden;margin:6px 0 12px}
+.bar i,.xb i,.dots i{display:block;height:100%;background:var(--sun);border-radius:9px;transition:width .6s}
+.dots i{background:var(--pri)}
+.lv{width:100%;padding:11px;border-radius:12px;border:2px solid rgba(255,255,255,.35);background:rgba(255,255,255,.15);color:#fff}
+.lv option{color:#101842}
+.go{margin-top:12px;width:100%;padding:16px;border:0;border-radius:16px;background:var(--sun);color:#101842;font-size:20px;font-weight:900;box-shadow:0 5px 0 #c99a00}
+.wod{display:flex;align-items:center;justify-content:space-between;gap:10px;background:var(--card);border:2px solid var(--line);border-radius:20px;padding:14px 16px;margin:12px 0}
+.wod small{color:var(--mute);font-weight:400}.wod p{margin:0;font:400 30px/1.1 "Lilita One",system-ui,sans-serif;direction:ltr;text-align:right}
+.wod span{color:var(--pri);font-weight:900}.wod button{border:0;background:var(--pri);color:var(--onpri);width:52px;height:52px;border-radius:50%;font-size:22px}
+.row{display:flex;gap:10px;margin-bottom:10px}
+.btn,.ghost{flex:1;padding:14px 6px;border-radius:14px;border:2px solid var(--pri);background:var(--pri);color:var(--onpri);font-size:16px}
+.ghost{background:var(--card);color:var(--ink);border-color:var(--line)}
+.btn.no{background:transparent;color:var(--ink);border-color:var(--line)}
+.top{display:flex;align-items:center;justify-content:space-between;margin:2px 0 4px}
+.top span:first-child{font-weight:900;font-size:20px}
+.chip{background:var(--card);border:2px solid var(--line);border-radius:99px;padding:3px 12px;font-size:13px;color:var(--mute)}
+.card{background:var(--card);border:2px solid var(--line);border-radius:22px;padding:24px 14px;text-align:center;margin-bottom:12px;min-height:170px;display:flex;flex-direction:column;justify-content:center;align-items:center}
+.en{font:400 44px/1.1 "Lilita One",system-ui,sans-serif;margin:0 0 10px;direction:ltr;word-break:break-word}
+.ar{font-size:28px;font-weight:900;margin:0;color:var(--pri)}
+.hint,.note{color:var(--mute);margin:0;font-size:14px;font-weight:400}.note{font-size:13px;text-align:center;margin:8px 0}
+.big{font-size:22px;font-weight:900;margin:0 0 14px}
+.fl{perspective:900px;margin:8px 0 10px;cursor:pointer;touch-action:pan-y}
+.in{position:relative;min-height:260px;transform-style:preserve-3d}
+.fl.on .in{transform:rotateY(180deg)}
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;background:var(--card);border:2px solid var(--line);border-radius:24px;padding:16px;box-shadow:0 8px 0 var(--line)}
+.face.b{transform:rotateY(180deg);background:var(--pri);border-color:var(--pri);box-shadow:0 8px 0 rgba(0,0,0,.2)}
+.face.b .ar{color:var(--onpri);font-size:34px}
+.pos{text-align:center;color:var(--mute);margin:0 0 10px;font-size:14px}
+.opts{display:grid;gap:10px}
+.opt{width:100%;padding:14px;border-radius:14px;border:2px solid var(--line);background:var(--card);font-size:19px;box-shadow:0 4px 0 var(--line)}
+.opt.ok{background:var(--ok);border-color:var(--ok);color:#fff}.opt.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.mg{display:grid;grid-template-columns:1fr 1fr;gap:10px}.mg>div{display:grid;gap:10px;align-content:start}
+.mt{padding:14px 6px;border-radius:14px;border:2px solid var(--line);background:var(--card);font-size:16px;box-shadow:0 4px 0 var(--line)}
+.mt.sel{border-color:var(--pri);background:var(--pri);color:var(--onpri)}
+.mt.bad{background:var(--bad);border-color:var(--bad);color:#fff}
+.mt.gone{background:var(--ok);border-color:var(--ok);color:#fff;opacity:.35;pointer-events:none}
+input,select.f{width:100%;padding:12px;margin-bottom:10px;border-radius:12px;border:2px solid var(--line);background:var(--card)}
+.dl{display:flex;align-items:center;gap:8px;padding:9px 0;border-top:1px solid var(--line)}
+.dl b{direction:ltr;min-width:100px;text-align:left}.dl span{flex:1}
+.dl button{border:0;background:transparent;font-size:22px}
+details{background:var(--card);border:2px solid var(--line);border-radius:16px;padding:12px 16px;margin-bottom:10px}
+summary{font-weight:900;font-size:17px}
+.ex{direction:ltr;text-align:left;font-size:18px;margin:10px 0;line-height:1.7}
+.dlg{display:flex;justify-content:space-between;align-items:center;gap:8px;padding:8px 0;border-top:1px solid var(--line)}
+.dlg b{direction:ltr;display:block}.dlg small{color:var(--mute);font-weight:400}.dlg button{border:0;background:transparent;font-size:22px}
+#nav{position:fixed;left:0;right:0;bottom:0;display:flex;justify-content:space-around;background:var(--card);border-top:2px solid var(--line);padding:6px 4px calc(env(safe-area-inset-bottom,0px) + 6px);z-index:5}
+#nav button{border:0;background:transparent;display:flex;flex-direction:column;align-items:center;gap:0;font-size:11px;color:var(--mute);padding:6px 8px;border-radius:12px;min-width:48px}
+#nav button i{font-style:normal;font-size:22px}#nav button.on{color:var(--pri);background:rgba(51,85,255,.12)}
+#toast{position:fixed;left:16px;right:16px;bottom:calc(env(safe-area-inset-bottom,0px) + 84px);max-width:440px;margin:auto;background:var(--ink);color:var(--bg);padding:12px 16px;border-radius:14px;text-align:center;font-size:14px;opacity:0;pointer-events:none;transition:opacity .25s;z-index:9}
+#cv{position:fixed;inset:0;width:100%;height:100%;pointer-events:none;z-index:8}
+.fx{position:fixed;transform:translateX(-50%);font-weight:900;font-size:20px;color:#ffb400;text-shadow:0 2px 0 rgba(0,0,0,.35);pointer-events:none;z-index:9}
+.sn{font-size:16px;margin:8px 6px 0;direction:ltr;line-height:1.7;color:var(--mute);font-weight:700}
+.sn mark{background:var(--sun);color:#101842;border-radius:7px;padding:1px 7px;font-weight:900;box-shadow:0 0 10px var(--sun)}
+.face.b .sn{color:#fff}.sp2{border:0;background:transparent;font-size:19px;padding:0 4px}
+.sc{background:var(--card);border:2px solid var(--line);border-radius:20px;padding:14px 16px;margin:12px 0}
+.sc b{display:block;font-size:19px}.sc small{color:var(--mute);font-weight:400;display:block;margin:2px 0 8px}.sc .bar{margin:0}
+@media(prefers-reduced-motion:no-preference){
+.sn mark{animation:gl 2s ease-in-out infinite}@keyframes gl{50%{box-shadow:0 0 18px 4px var(--sun)}}
+.hero{animation:gr 9s ease-in-out infinite}@keyframes gr{50%{background-position:100% 100%}}
+.b1{animation:fl1 7s ease-in-out infinite}.b2{animation:fl1 9s ease-in-out infinite reverse}@keyframes fl1{50%{transform:translate(30px,24px) scale(1.2)}}
+.mark{animation:pop .6s cubic-bezier(.3,1.5,.5,1)}@keyframes pop{from{transform:scale(.7);opacity:0}to{transform:none;opacity:1}}
+.in{transition:transform .6s cubic-bezier(.3,1.3,.5,1)}
+.sl{animation:sl .35s ease-out}@keyframes sl{from{opacity:0;transform:translateX(-36px)}to{opacity:1;transform:none}}
+.opt.ok,.mt.gone{animation:pp .4s}@keyframes pp{50%{transform:scale(1.07)}}
+.opt.bad,.mt.bad{animation:sh .4s}@keyframes sh{20%,60%{transform:translateX(-8px)}40%,80%{transform:translateX(8px)}}
+.fx{animation:rise .9s ease-out forwards}@keyframes rise{to{transform:translate(-50%,-60px);opacity:0}}
+}
+</style>
+</head>
+<body>
+<main id="root"></main><canvas id="cv"></canvas><div id="toast" role="status"></div>
+<nav id="nav"><button data-t="home" onclick="home()"><i>🏠</i>الرئيسية</button><button data-t="cards" onclick="cards()"><i>🃏</i>بطاقات</button><button data-t="quiz" onclick="quizMenu()"><i>🎯</i>اختبار</button><button data-t="game" onclick="game()"><i>🧩</i>لعبة</button><button data-t="list" onclick="list()"><i>📚</i>الكلمات</button><button data-t="set" onclick="opts()"><i>⚙️</i>خيارات</button></nav>
+<script>
+const W=[["the","الـ"],["be","يكون"],["to","إلى / أن"],["of","من / لـ"],["and","و"],["a","أداة نكرة"],["in","في"],["that","ذلك / أن"],["have","يملك / لديه"],["I","أنا"],["it","هو / هي لغير العاقل"],["for","من أجل"],["not","ليس / لا"],["on","على"],["with","مع"],["he","هو"],["as","مثل / باعتباره"],["you","أنت"],["do","يفعل"],["at","عند / في"],["this","هذا"],["but","لكن"],["his","له"],["by","بواسطة / بجانب"],["from","من"],["they","هم"],["we","نحن"],["say","يقول"],["her","لها / إياها"],["she","هي"],["or","أو"],["an","أداة نكرة"],["will","سوف"],["my","لي / خاصتي"],["one","واحد"],["all","كل"],["would","كان سيـ"],["there","هناك"],["their","لهم / خاصتهم"],["what","ماذا"],["so","لذلك / جدًا"],["up","أعلى"],["out","خارج"],["if","إذا"],["about","حول / عن"],["who","من"],["get","يحصل على"],["which","أيّ"],["go","يذهب"],["me","أنا / إياي"],["when","متى / عندما"],["make","يصنع / يجعل"],["can","يستطيع"],["like","يحب / مثل"],["time","وقت"],["no","لا"],["just","فقط"],["him","إياه / له"],["know","يعرف"],["take","يأخذ"],["people","ناس"],["into","إلى الداخل"],["year","سنة"],["your","لك / خاصتك"],["good","جيد"],["some","بعض"],["could","استطاع / يمكنه"],["them","هم / إياهم"],["see","يرى"],["other","آخر"],["than","من (للمقارنة)"],["then","ثم"],["now","الآن"],["look","ينظر"],["only","فقط"],["come","يأتي"],["its","له / لها لغير العاقل"],["over","فوق / انتهى"],["think","يفكر"],["also","أيضًا"],["back","ظهر / إلى الخلف"],["after","بعد"],["use","يستخدم"],["two","اثنان"],["how","كيف"],["our","لنا / خاصتنا"],["work","عمل / يعمل"],["first","الأول"],["well","جيدًا"],["way","طريقة / طريق"],["even","حتى / حتى إن"],["new","جديد"],["want","يريد"],["because","لأن"],["any","أيّ"],["these","هؤلاء / هذه"],["give","يعطي"],["day","يوم"],["most","معظم / الأكثر"],["us","نحن / إيانا"],["is","يكون (هو)"],["are","يكونون / تكون"],["was","كان"],["were","كانوا / كنّ"],["been","كان"],["being","كون / يجري"],["has","لديه"],["had","كان لديه"],["did","فعل"],["does","يفعل"],["said","قال"],["went","ذهب"],["made","صنع"],["came","أتى"],["saw","رأى"],["found","وجد"],["told","أخبر"],["asked","سأل"],["felt","شعر"],["left","غادر / ترك"],["ready","جاهز"],["place","مكان"],["each","كلّ"],["soon","قريبًا"],["safe","آمن"],["supposed","من المفترض"],["company","شركة"],["pond","بركة ماء"],["pathway","ممر"],["sunscreen","واقي الشمس"],["child","طفل"],["between","بين"],["clear","واضح"],["chase","يطارد"],["lock","يقفل / قفل"],["unlock","يفتح القفل"],["borrow","يستعير"],["lend","يُقرض"],["hide","يختبئ / يخفي"],["search","يبحث"],["escape","يهرب"],["climb","يتسلق"],["throw","يرمي"],["crawl","يزحف"],["catch","يمسك / يلتقط"],["drop","يُسقط"],["tap","ينقر"],["knock","يطرق"],["documents","وثائق"],["coworker","زميل عمل"],["opportunity","فرصة"],["achieve","يحقق"],["decision","قرار"],["plan","خطة / يخطط"],["effort","جهد"],["although","رغم أن"],["eventually","في النهاية"],["avoid","يتجنب"],["realize","يدرك"],["require","يتطلب"],["despite","بالرغم من"],["reliable","موثوق"],["happy","سعيد"],["sad","حزين"],["angry","غاضب"],["afraid","خائف"],["tired","متعب"],["hungry","جائع"],["thirsty","عطشان"],["big","كبير"],["small","صغير"],["long","طويل"],["short","قصير"],["high","مرتفع"],["low","منخفض"],["old","قديم / كبير في السن"],["young","شاب / صغير السن"],["early","مبكر"],["late","متأخر"],["easy","سهل"],["hard","صعب / قاسٍ"],["important","مهم"],["different","مختلف"],["same","نفسه / مماثل"],["right","صحيح / يمين"],["wrong","خطأ"],["true","صحيح / حقيقي"],["real","حقيقي"],["possible","ممكن"],["impossible","مستحيل"],["strong","قوي"],["weak","ضعيف"],["fast","سريع"],["slow","بطيء"],["beautiful","جميل"],["ugly","قبيح"],["clean","نظيف"],["dirty","متسخ"],["full","ممتلئ"],["empty","فارغ"],["open","مفتوح / يفتح"],["closed","مغلق"],["hot","حار"],["cold","بارد"],["warm","دافئ"],["cool","بارد قليلًا / رائع"],["dark","مظلم"],["light","ضوء / خفيف"],["bright","مشرق"],["water","ماء"],["food","طعام"],["bread","خبز"],["milk","حليب"],["egg","بيضة"],["rice","أرز"],["meat","لحم"],["chicken","دجاج"],["fish","سمك"],["fruit","فاكهة"],["apple","تفاحة"],["banana","موزة"],["orange","برتقالة"],["vegetable","خضار"],["sugar","سكر"],["salt","ملح"],["tea","شاي"],["coffee","قهوة"],["juice","عصير"],["breakfast","فطور"],["lunch","غداء"],["dinner","عشاء"],["kitchen","مطبخ"],["room","غرفة"],["house","منزل"],["home","بيت"],["door","باب"],["window","نافذة"],["wall","جدار"],["floor","أرضية / طابق"],["table","طاولة"],["chair","كرسي"],["bed","سرير"],["phone","هاتف"],["computer","حاسوب"],["screen","شاشة"],["keyboard","لوحة مفاتيح"],["mouse","فأرة"],["book","كتاب"],["notebook","دفتر"],["pen","قلم"],["pencil","قلم رصاص"],["bag","حقيبة"],["school","مدرسة"],["student","طالب"],["teacher","معلّم"],["class","صف / حصة"],["lesson","درس"],["question","سؤال"],["answer","إجابة"],["learn","يتعلم"],["study","يدرس"],["read","يقرأ"],["write","يكتب"],["speak","يتحدث"],["listen","يستمع"],["hear","يسمع"],["understand","يفهم"],["remember","يتذكر"],["forget","ينسى"],["repeat","يكرر"],["practice","يتدرب / ممارسة"],["improve","يحسن / يتحسن"],["explain","يشرح"],["translate","يترجم"],["mean","يعني"],["spell","يتهجّى"],["pronounce","ينطق"],["word","كلمة"],["sentence","جملة"],["story","قصة"],["language","لغة"],["English","اللغة الإنجليزية"],["Arabic","اللغة العربية"],["name","اسم"],["age","عمر"],["country","دولة"],["city","مدينة"],["friend","صديق"],["family","عائلة"],["mother","أم"],["father","أب"],["brother","أخ"],["sister","أخت"],["parent","أحد الوالدين"],["person","شخص"],["man","رجل"],["woman","امرأة"],["boy","ولد"],["girl","بنت"],["baby","رضيع"],["adult","بالغ"],["life","حياة"],["world","عالم"],["problem","مشكلة"],["idea","فكرة"],["reason","سبب"],["result","نتيجة"],["change","تغيير / يغيّر"],["start","يبدأ / بداية"],["begin","يبدأ"],["finish","ينهي"],["stop","يتوقف"],["continue","يستمر"],["try","يحاول"],["help","يساعد / مساعدة"],["need","يحتاج"],["feel","يشعر"],["seem","يبدو"],["become","يصبح"],["keep","يحتفظ / يستمر"],["let","يسمح / يدع"],["put","يضع"],["bring","يحضر"],["carry","يحمل"],["send","يرسل"],["receive","يستقبل"],["buy","يشتري"],["sell","يبيع"],["pay","يدفع"],["cost","يكلف / تكلفة"],["spend","ينفق / يقضي وقتًا"],["save","يوفر / يحفظ"],["choose","يختار"],["decide","يقرر"],["agree","يوافق"],["disagree","يعارض"],["believe","يؤمن / يعتقد"],["hope","يأمل"],["wish","يتمنى"],["love","يحب"],["hate","يكره"],["enjoy","يستمتع"],["prefer","يفضل"],["worry","يقلق"],["care","يهتم"],["laugh","يضحك"],["smile","يبتسم"],["cry","يبكي"],["shout","يصرخ"],["talk","يتكلم"],["tell","يخبر"],["call","يتصل / ينادي"],["meet","يقابل"],["visit","يزور"],["wait","ينتظر"],["stay","يبقى"],["live","يعيش"],["move","يتحرك / ينتقل"],["travel","يسافر"],["walk","يمشي"],["run","يجري"],["sit","يجلس"],["stand","يقف"],["sleep","ينام"],["wake","يستيقظ"],["eat","يأكل"],["drink","يشرب"],["cook","يطبخ"],["wash","يغسل"],["wear","يرتدي"],["dress","ملابس / يرتدي"],["drive","يقود"],["ride","يركب"],["fly","يطير"],["fall","يسقط"],["break","يكسر / استراحة"],["fix","يصلح"],["build","يبني"],["create","ينشئ"],["draw","يرسم"],["paint","يدهن / يرسم بالألوان"],["play","يلعب"],["win","يفوز"],["lose","يخسر / يفقد"],["fight","يقاتل / شجار"],["protect","يحمي"],["follow","يتبع"],["lead","يقود"],["happen","يحدث"],["show","يُظهر / عرض"],["watch","يشاهد"],["find","يجد"],["check","يفحص"],["test","يختبر / اختبار"],["pass","ينجح / يمر"],["fail","يفشل"],["teach","يعلّم"],["train","يدرّب"],["count","يعدّ"],["add","يضيف"],["remove","يزيل"],["cut","يقطع"],["push","يدفع"],["pull","يسحب"],["touch","يلمس"],["hold","يمسك"],["pick","يختار / يلتقط"],["turn","يدور / ينعطف"],["arrive","يصل"],["leave","يغادر"],["return","يعود"],["enter","يدخل"],["exit","يخرج"],["reach","يصل إلى"],["passenger","راكب"],["road","طريق"],["street","شارع"],["traffic","حركة المرور"],["car","سيارة"],["bus","حافلة"],["plane","طائرة"],["bike","دراجة"],["station","محطة"],["airport","مطار"],["ticket","تذكرة"],["map","خريطة"],["address","عنوان"],["today","اليوم"],["tomorrow","غدًا"],["yesterday","أمس"],["morning","صباح"],["afternoon","بعد الظهر"],["evening","مساء"],["night","ليل"],["week","أسبوع"],["month","شهر"],["minute","دقيقة"],["hour","ساعة"],["second","ثانية"],["Monday","الاثنين"],["Tuesday","الثلاثاء"],["Wednesday","الأربعاء"],["Thursday","الخميس"],["Friday","الجمعة"],["Saturday","السبت"],["Sunday","الأحد"],["weekend","عطلة نهاية الأسبوع"],["January","يناير"],["February","فبراير"],["March","مارس"],["April","أبريل"],["May","مايو"],["June","يونيو"],["July","يوليو"],["August","أغسطس"],["September","سبتمبر"],["October","أكتوبر"],["November","نوفمبر"],["December","ديسمبر"],["spring","الربيع"],["summer","الصيف"],["autumn","الخريف"],["winter","الشتاء"],["weather","طقس"],["rain","مطر"],["snow","ثلج"],["wind","رياح"],["sun","شمس"],["moon","قمر"],["star","نجمة"],["sky","سماء"],["cloud","سحابة"],["air","هواء"],["fire","نار"],["earth","الأرض"],["tree","شجرة"],["flower","زهرة"],["grass","عشب"],["forest","غابة"],["mountain","جبل"],["river","نهر"],["lake","بحيرة"],["sea","بحر"],["beach","شاطئ"],["animal","حيوان"],["dog","كلب"],["cat","قط"],["bird","طائر"],["horse","حصان"],["cow","بقرة"],["sheep","خروف"],["insect","حشرة"],["body","جسم"],["head","رأس"],["face","وجه"],["eye","عين"],["ear","أذن"],["nose","أنف"],["mouth","فم"],["tooth","سن"],["teeth","أسنان"],["neck","رقبة"],["shoulder","كتف"],["arm","ذراع"],["hand","يد"],["finger","إصبع"],["leg","ساق"],["foot","قدم"],["heart","قلب"],["brain","دماغ"],["hair","شعر"],["skin","جلد"],["blood","دم"],["health","صحة"],["pain","ألم"],["doctor","طبيب"],["nurse","ممرض / ممرضة"],["hospital","مستشفى"],["medicine","دواء / طب"],["healthy","صحي"],["sick","مريض"],["ill","مريض"],["exercise","تمرين"],["sport","رياضة"],["muscle","عضلة"],["money","مال"],["price","سعر"],["shop","متجر"],["store","متجر"],["market","سوق"],["job","وظيفة"],["career","مسار مهني"],["office","مكتب"],["boss","مدير"],["worker","عامل"],["business","عمل تجاري"],["customer","زبون"],["service","خدمة"],["product","منتج"],["team","فريق"],["meeting","اجتماع"],["email","بريد إلكتروني"],["message","رسالة"],["internet","إنترنت"],["website","موقع إلكتروني"],["app","تطبيق"],["software","برمجيات"],["hardware","أجهزة"],["data","بيانات"],["file","ملف"],["password","كلمة مرور"],["account","حساب"],["network","شبكة"],["security","أمان"],["technology","تكنولوجيا"],["science","علم"],["math","رياضيات"],["number","رقم"],["maths","رياضيات"],["history","تاريخ"],["art","فن"],["music","موسيقى"],["movie","فيلم"],["game","لعبة"],["news","أخبار"],["photo","صورة فوتوغرافية"],["picture","صورة"],["video","فيديو"],["sound","صوت"],["voice","صوت بشري"],["color","لون"],["red","أحمر"],["blue","أزرق"],["green","أخضر"],["yellow","أصفر"],["black","أسود"],["white","أبيض"],["gray","رمادي"],["brown","بني"],["pink","وردي"],["purple","بنفسجي"],["zero","صفر"],["three","ثلاثة"],["four","أربعة"],["five","خمسة"],["six","ستة"],["seven","سبعة"],["eight","ثمانية"],["nine","تسعة"],["ten","عشرة"],["hundred","مئة"],["thousand","ألف"],["many","كثير"],["much","كثير / كمية"],["few","قليل"],["little","قليل / صغير"],["more","أكثر"],["less","أقل"],["enough","كافٍ"],["every","كل"],["another","آخر"],["both","كلاهما"],["either","أيّ منهما"],["neither","لا هذا ولا ذاك"],["always","دائمًا"],["usually","عادةً"],["often","غالبًا"],["sometimes","أحيانًا"],["rarely","نادرًا"],["never","أبدًا"],["again","مرة أخرى"],["already","بالفعل"],["yet","بعد / حتى الآن"],["still","ما زال"],["maybe","ربما"],["perhaps","ربما"],["probably","على الأرجح"],["really","حقًا"],["very","جدًا"],["quite","إلى حد ما"],["almost","تقريبًا"],["especially","خصوصًا"],["together","معًا"],["alone","وحيدًا"],["here","هنا"],["everywhere","في كل مكان"],["somewhere","في مكان ما"],["anywhere","أي مكان"],["inside","داخل"],["outside","خارج"],["above","فوق"],["below","أسفل"],["near","قريب"],["far","بعيد"],["north","شمال"],["south","جنوب"],["east","شرق"],["west","غرب"],["around","حول"],["through","عبر / خلال"],["across","عبر"],["behind","خلف"],["front","أمام"],["beside","بجانب"],["under","تحت"],["during","أثناء"],["before","قبل"],["afterward","بعد ذلك"],["until","حتى"],["since","منذ"],["while","بينما"],["without","بدون"],["within","داخل / في غضون"],["against","ضد"],["toward","باتجاه"],["among","بين / ضمن"],["except","باستثناء"],["including","بما في ذلك"],["instead","بدلًا من ذلك"],["however","مع ذلك"],["therefore","لذلك"],["unless","إلا إذا"],["whether","ما إذا"],["though","مع أن"],["sure","متأكد"],["certain","مؤكد"],["exactly","بالضبط"],["clearly","بوضوح"],["carefully","بحذر"],["quickly","بسرعة"],["slowly","ببطء"],["easily","بسهولة"],["seriously","بجدية"],["simply","ببساطة"],["actually","في الواقع"],["basically","بشكل أساسي"],["finally","أخيرًا"],["firstly","أولًا"],["secondly","ثانيًا"],["recently","مؤخرًا"],["currently","حاليًا"],["immediately","فورًا"],["suddenly","فجأة"],["directly","مباشرة"],["normally","عادةً"],["personally","شخصيًا"],["kind","نوع / لطيف"],["type","نوع"],["sort","نوع"],["example","مثال"],["fact","حقيقة"],["truth","الحقيقة"],["lie","كذبة / يكذب"],["secret","سر"],["goal","هدف"],["dream","حلم"],["future","مستقبل"],["past","ماضٍ"],["present","حاضر / هدية"],["chance","فرصة"],["choice","اختيار"],["option","خيار"],["purpose","غرض"],["meaning","معنى"],["success","نجاح"],["failure","فشل"],["mistake","خطأ"],["error","خطأ"],["skill","مهارة"],["ability","قدرة"],["knowledge","معرفة"],["memory","ذاكرة"],["attention","انتباه"],["focus","تركيز"],["mind","عقل"],["thought","فكرة"],["opinion","رأي"],["belief","اعتقاد"],["experience","تجربة / خبرة"],["education","تعليم"],["information","معلومات"],["advice","نصيحة"],["support","دعم"],["respect","احترام"],["trust","ثقة"],["fear","خوف"],["anger","غضب"],["peace","سلام"],["freedom","حرية"],["power","قوة / سلطة"],["control","سيطرة / يتحكم"],["risk","مخاطرة"],["danger","خطر"],["careful","حذر"],["careless","مهمل"],["polite","مهذب"],["rude","وقح"],["honest","صادق"],["dishonest","غير أمين"],["brave","شجاع"],["clever","ذكي"],["smart","ذكي"],["stupid","غبي"],["quiet","هادئ"],["loud","مرتفع الصوت"],["friendly","ودود"],["helpful","متعاون"],["lazy","كسول"],["busy","مشغول"],["free","حر / مجاني"],["available","متاح"],["able","قادر"],["unable","غير قادر"],["common","شائع"],["popular","شائع / محبوب"],["special","مميز"],["normal","طبيعي"],["strange","غريب"],["weird","غريب"],["interesting","مثير للاهتمام"],["boring","ممل"],["funny","مضحك"],["serious","جاد"],["likely","محتمل"],["useful","مفيد"],["useless","عديم الفائدة"],["necessary","ضروري"],["valuable","قيّم"],["cheap","رخيص"],["expensive","غالي"],["rich","غني"],["poor","فقير"],["simple","بسيط"],["complex","معقد"],["modern","حديث"],["ancient","قديم جدًا"],["local","محلي"],["international","دولي"],["public","عام"],["private","خاص"],["personal","شخصي"],["social","اجتماعي"],["natural","طبيعي"],["human","بشري / إنسان"],["digital","رقمي"],["online","متصل بالإنترنت"],["offline","غير متصل"],["automatic","تلقائي"],["machine","آلة"],["robot","روبوت"],["artificial","اصطناعي"],["intelligence","ذكاء"],["model","نموذج"],["program","برنامج"],["code","شفرة / كود"],["programmer","مبرمج"],["developer","مطوّر"],["engineer","مهندس"],["invent","يخترع"],["invention","اختراع"],["innovation","ابتكار"],["research","بحث"],["experiment","تجربة"],["method","طريقة"],["system","نظام"],["process","عملية"],["function","دالة / وظيفة"],["feature","ميزة"],["tool","أداة"],["device","جهاز"],["button","زر"],["click","ينقر"],["download","ينزّل"],["upload","يرفع"],["install","يثبّت"],["update","يحدّث"],["delete","يحذف"],["copy","ينسخ"],["paste","يلصق"],["load","يحمّل"],["connect","يتصل"],["share","يشارك"],["browse","يتصفح"],["select","يختار"],["dictionary","قاموس"],["translation","ترجمة"],["pronunciation","نطق"],["grammar","قواعد اللغة"],["vocabulary","مفردات"],["fluent","طليق"],["fluency","طلاقة"],["accent","لكنة"],["conversation","محادثة"],["phrase","عبارة"],["expression","تعبير"],["verb","فعل"],["noun","اسم"],["adjective","صفة"],["adverb","حال"],["preposition","حرف جر"],["pronoun","ضمير"],["tense","زمن نحوي"],["plural","جمع"],["singular","مفرد"],["meaningful","ذو معنى"],["daily","يومي"],["weekly","أسبوعي"],["monthly","شهري"],["habit","عادة"],["routine","روتين"],["schedule","جدول"],["progress","تقدم"],["level","مستوى"],["beginner","مبتدئ"],["intermediate","متوسط"],["advanced","متقدم"],["review","مراجعة"],["quiz","اختبار قصير"],["score","نتيجة"],["correct","صحيح"],["incorrect","غير صحيح"],["target","هدف محدد"],["challenge","تحدٍ"],["discipline","انضباط"],["patience","صبر"],["motivation","دافع"],["achievement","إنجاز"],["confidence","ثقة بالنفس"],["introduce","يعرّف / يقدم"],["describe","يصف"],["compare","يقارن"],["discuss","يناقش"],["suggest","يقترح"],["recommend","يوصي"],["promise","يعد"],["offer","يعرض"],["accept","يقبل"],["refuse","يرفض"],["allow","يسمح"],["prevent","يمنع"],["prepare","يحضّر"],["develop","يطوّر"],["increase","يزيد"],["decrease","ينقص"],["reduce","يقلل"],["depend","يعتمد"],["include","يشمل"],["contain","يحتوي"],["provide","يوفر"],["produce","ينتج"],["discover","يكتشف"],["solve","يحل"],["consider","يأخذ بعين الاعتبار"],["expect","يتوقع"],["notice","يلاحظ"],["recognize","يتعرف على"],["imagine","يتخيل"],["suppose","يفترض"],["guess","يخمن"],["wonder","يتساءل"],["belong","ينتمي"],["own","يمتلك"],["owe","يدين بـ"],["earn","يكسب"],["waste","يهدر"],["afford","يستطيع تحمّل التكلفة"],["invest","يستثمر"],["manage","يدير / يتمكن"],["join","ينضم"],["separate","يفصل"],["divide","يقسم"],["mix","يخلط"],["fill","يملأ"],["cover","يغطي"],["attack","يهاجم"],["defend","يدافع"],["seek","يسعى / يبحث"],["lift","يرفع"],["drag","يجر"],["press","يضغط"],["jump","يقفز"],["kick","يركل"],["hit","يضرب"],["beat","يهزم / يضرب"],["shoot","يطلق / يصوّر"],["aim","يصوّب"],["point","يشير"],["wave","يلوّح / موجة"],["shake","يهز"],["nod","يومئ برأسه"],["bow","ينحني"],["bend","ينحني / يثني"],["stretch","يمدّد"],["grab","يمسك بسرعة"],["release","يطلق / يحرر"],["let go","يترك"],["care for","يعتني بـ"],["look for","يبحث عن"],["find out","يكتشف / يعرف"],["give up","يستسلم"],["keep going","يواصل"],["get up","ينهض"],["sit down","يجلس"],["stand up","يقف"],["turn on","يشغّل"],["turn off","يطفئ"],["pick up","يلتقط"],["put on","يرتدي"],["take off","يخلع / يقلع"],["come back","يعود"],["go away","يرحل"],["run away","يهرب"],["calm down","يهدأ"],["wake up","يستيقظ"],["fall asleep","يغفو"],["hang out","يقضي وقتًا مع الأصدقاء"],["figure out","يفهم / يجد الحل"],["absent","غائب"],["absolute","مطلق"],["academic","أكاديمي"],["access","وصول"],["accident","حادث"],["accurate","دقيق"],["action","فعل"],["active","نشط"],["activity","نشاط"],["actor","ممثل"],["actress","ممثلة"],["actual","فعلي"],["adapt","يتكيف"],["admire","يعجب بـ"],["admit","يعترف"],["adopt","يتبنى"],["advance","يتقدم"],["advantage","ميزة"],["adventure","مغامرة"],["advertise","يعلن"],["affect","يؤثر"],["agency","وكالة"],["agent","وكيل"],["aggressive",""],["ago","منذ"],["ahead","إلى الأمام"],["alarm","إنذار"],["album","ألبوم"],["alcohol",""],["alive","حي"],["alphabet",""],["alternative","بديل"],["amazing",""],["ambition","طموح"],["amount","كمية"],["angle",""],["announce","يعلن"],["annual","سنوي"],["anxious","قلق"],["anybody","أي شخص"],["anyhow","على أي حال"],["anymore","بعد الآن"],["anyone","أي شخص"]];
+const G=[
+['الفعل to be (am / is / are)','I am a student.<br>He is happy.<br>They are friends.','نستخدم am مع I، وis مع he / she / it، وare مع you / we / they.'],
+['الجمع','book → books<br>box → boxes<br>child → children','نضيف s غالبا. بعد s و x و ch نضيف es. وبعض الكلمات شاذة.'],
+['a و an','a book<br>an apple<br>an hour','نستخدم an قبل الصوت المتحرك، وa قبل غيره.']
+];
+const D=[['Hello! What is your name?','مرحبا! ما اسمك؟'],['Hi! My name is Sam.','أهلا! اسمي سام.'],['Nice to meet you.','تشرفت بمعرفتك.'],['Nice to meet you too.','وأنا أيضا.']];
+const SEN={"0": "The sun is bright today.", "1": "I want to be a doctor.", "2": "We go to school by bus.", "3": "This is a picture of my family.", "4": "I like tea and cake.", "5": "She has a red bag.", "6": "The keys are in my pocket.", "7": "I know that he is kind.", "8": "We have a small garden.", "9": "I am happy to see you.", "10": "It is cold outside.", "11": "This gift is for you.", "12": "I am not tired.", "13": "The book is on the table.", "14": "I live with my parents.", "15": "He plays football every day.", "16": "He works as a teacher.", "17": "Can you help me?", "18": "What do you want to eat?", "19": "We meet at five o'clock.", "20": "This is my new phone.", "21": "I like tea, but I love coffee.", "22": "His name is Omar.", "23": "We travel by train.", "24": "She comes from Egypt.", "25": "They are my best friends.", "26": "We are in the same class.", "27": "Please say it again.", "28": "I gave her a book.", "29": "She reads before sleep.", "30": "Do you want tea or juice?", "31": "I eat an apple every day.", "32": "I will call you tomorrow.", "33": "My brother is tall.", "34": "I have one sister.", "35": "All the students are here.", "36": "I would like some water.", "37": "There is a cat on the roof.", "38": "Their house is very big.", "39": "What is your name?", "40": "I was tired, so I slept early.", "41": "Please stand up.", "42": "She went out to play.", "43": "If it rains, we stay home.", "44": "Tell me about your day.", "45": "Who is that man?", "46": "I get up at six.", "47": "Which color do you like?", "48": "I go to work at eight.", "49": "Please give me a pen.", "50": "When do you finish work?", "51": "Let's make some tea.", "52": "I can swim very well.", "53": "I like fresh orange juice.", "54": "What time is it now?", "55": "No, thank you.", "56": "I just arrived home.", "57": "I saw him yesterday.", "58": "I know the answer.", "59": "Take an umbrella with you.", "60": "Many people live in this city.", "61": "He jumped into the water.", "62": "This year I will learn English.", "63": "Your room is very clean.", "64": "This is a good idea.", "65": "I need some help.", "66": "Could you open the door?", "67": "I will see them tomorrow.", "68": "I can see the sea from here.", "69": "Give me the other book.", "70": "My brother is taller than me.", "71": "Wash your hands, then eat.", "72": "I am studying now.", "73": "Look at that bird!", "74": "I have only one pen.", "75": "Please come to my house.", "76": "The dog wagged its tail.", "77": "The bird flew over the house.", "78": "I think it is a good plan.", "79": "She is also a student.", "80": "I will be back soon.", "81": "After school, I play outside.", "82": "I use my phone to learn English.", "83": "I have two brothers.", "84": "How are you today?", "85": "Our teacher is kind.", "86": "My father goes to work early.", "87": "Today is my first day.", "88": "She speaks English well.", "89": "This is the way to the park.", "90": "Even my little brother knows it.", "91": "I bought a new bag.", "92": "I want a glass of water.", "93": "I am happy because it is Friday.", "94": "Do you have any questions?", "95": "These apples are fresh.", "96": "Please give me your hand.", "97": "Today is a beautiful day.", "98": "Most students like games.", "99": "Come with us to the park."};
+const R=document.getElementById('root'),$=id=>document.getElementById(id);
+let S={seen:[],fav:[],lvl:0,pos:0,auto:true,xp:0,streak:0,last:''};
+try{Object.assign(S,JSON.parse(localStorage.getItem('inaro3')||localStorage.getItem('inaro2')||'{}'))}catch(e){}
+let seen=new Set(S.seen),favs=new Set(S.fav),pool=[];
+const strk=()=>(S.lastTs&&Date.now()-S.lastTs<1728e5)?S.streak:0;
+function touch(){const n=Date.now(),d=n-(S.lastTs||0);if(!S.lastTs||d>=1728e5){S.streak=1;S.lastTs=n}else if(d>=864e5){S.streak++;S.lastTs=n;toast('🔥 سلسلة '+S.streak+' أيام! استمر');confetti(60)}}
+const fm=ms=>{const m=Math.max(0,Math.ceil(ms/6e4));return Math.floor(m/60)+' س '+m%60+' د'};
+function chain(){const d=Date.now()-(S.lastTs||0),live=strk()>0;let t,p;if(!live){t='ابدأ سلسلتك بدراسة كلمة واحدة الآن';p=0}else if(d<864e5){t='السلسلة آمنة. ادرس بعد '+fm(864e5-d)+' لتزيد يوماً';p=d/864e5*100}else{t='⏳ ادرس خلال '+fm(1728e5-d)+' وإلا تنكسر السلسلة';p=100}return'<b>🔥 '+strk()+' يوم متتالي</b><small>'+t+'</small><div class="bar"><i style="width:'+p+'%"></i></div>'}
+function applyTheme(){const e=document.documentElement;if(S.theme)e.setAttribute('data-theme',S.theme);else e.removeAttribute('data-theme')}
+const rx=i=>new RegExp('\\b('+W[i][0].replace(/[.*+?^${}()|[\]\\]/g,'\\$&')+')\\b','i');
+const sn=i=>S.sen===false||!SEN[i]?'':'<p class="sn">'+SEN[i].replace(rx(i),'<mark>$1</mark>')+' <button class="sp2" aria-label="نطق الجملة" data-t="'+SEN[i]+'" onclick="event.stopPropagation();say(this.dataset.t)">🔊</button></p>';
+function save(){try{S.seen=[...seen];S.fav=[...favs];localStorage.setItem('inaro3',JSON.stringify(S))}catch(e){}}
+const shuffle=a=>a.map(x=>[Math.random(),x]).sort((p,q)=>p[0]-q[0]).map(p=>p[1]);
+const calm=()=>{try{return matchMedia('(prefers-reduced-motion: reduce)').matches}catch(e){return false}};
+const vib=n=>{try{S.vib!==false&&navigator.vibrate&&navigator.vibrate(n)}catch(e){}};
+const LV=x=>Math.floor(x/200)+1,TT=['مبتدئ','متعلم','متقدم','محترف','خبير','أسطورة'],ttl=()=>TT[Math.min(5,Math.floor((LV(S.xp)-1)/2))];
+let tt;function toast(m){const e=$('toast');e.textContent=m;e.style.opacity=1;clearTimeout(tt);tt=setTimeout(()=>{e.style.opacity=0},3500)}
+let voice=null;const sup='speechSynthesis' in window&&'SpeechSynthesisUtterance' in window;
+function pickVoice(){try{const v=speechSynthesis.getVoices().filter(x=>/^en/i.test(x.lang));voice=v.find(x=>/en[-_]US/i.test(x.lang)&&/google|samantha|natural|enhanced/i.test(x.name))||v.find(x=>/en[-_]US/i.test(x.lang))||v[0]||null}catch(e){}}
+try{pickVoice();speechSynthesis.onvoiceschanged=pickVoice}catch(e){}
+function say(t,slow){
+  if(!sup){toast('النطق غير مدعوم هنا. افتح الرابط في Chrome أو Safari.');return}
+  try{speechSynthesis.cancel();speechSynthesis.resume();setTimeout(()=>{const u=new SpeechSynthesisUtterance(t);u.lang='en-US';if(voice)u.voice=voice;u.rate=slow?0.5:(S.rate||0.9);u.onerror=e=>{if(e.error!=='canceled'&&e.error!=='interrupted')toast('تعذر تشغيل الصوت. ارفع الصوت وتأكد أن الجوال ليس على الصامت.')};speechSynthesis.speak(u)},60)}catch(e){toast('تعذر تشغيل الصوت على هذا الجهاز.')}
+}
+let ac=null;
+function beep(f,d){if(S.snd===false)return;try{ac=ac||new (window.AudioContext||window.webkitAudioContext)();const t=ac.currentTime+(d||0),o=ac.createOscillator(),g=ac.createGain();o.connect(g);g.connect(ac.destination);o.frequency.value=f;g.gain.setValueAtTime(0.15,t);g.gain.exponentialRampToValueAtTime(0.001,t+0.25);o.start(t);o.stop(t+0.25)}catch(e){}}
+function tone(ok){if(ok){beep(660);beep(880,0.12)}else beep(200)}
+function confetti(n){
+  if(calm())return;
+  const c=$('cv'),x=c.getContext('2d');c.width=innerWidth;c.height=innerHeight;
+  const cols=['#ffc933','#3355ff','#ff5d8f','#2ecf8a','#ffffff'];
+  const p=Array.from({length:n},()=>({x:innerWidth/2,y:innerHeight*0.4,vx:(Math.random()-0.5)*14,vy:-Math.random()*14-4,r:Math.random()*5+3,c:cols[Math.random()*5|0]}));
+  let f=0;(function t(){x.clearRect(0,0,c.width,c.height);p.forEach(a=>{a.x+=a.vx;a.y+=a.vy;a.vy+=0.4;x.fillStyle=a.c;x.fillRect(a.x,a.y,a.r,a.r*1.6)});if(++f<90)requestAnimationFrame(t);else x.clearRect(0,0,c.width,c.height)})();
+}
+function pop(t,el){
+  if(calm())return;
+  const e=document.createElement('div'),r=el?el.getBoundingClientRect():{left:innerWidth/2,top:innerHeight/2,width:0};
+  e.className='fx';e.textContent=t;e.style.left=(r.left+r.width/2)+'px';e.style.top=r.top+'px';document.body.appendChild(e);setTimeout(()=>e.remove(),950);
+}
+function xp(n,el){touch();const o=LV(S.xp);S.xp+=n;save();pop('+'+n+' XP',el);if(LV(S.xp)>o){toast('🎉 مستوى جديد '+LV(S.xp)+': '+ttl());confetti(110);tone(true)}}
+function setPool(){pool=[];const a=S.lvl?(S.lvl-1)*100:0,b=S.lvl?S.lvl*100:W.length;for(let i=a;i<b;i++)pool.push(i)}
+function nav(t){document.querySelectorAll('#nav button').forEach(b=>b.classList.toggle('on',b.dataset.t===t));scrollTo(0,0)}
+const hd=t=>'<div class="top"><span>'+t+'</span><span class="chip">🔥 '+strk()+' · ⭐ '+S.xp+' · Lv'+LV(S.xp)+'</span></div><div class="xb"><i style="width:'+(S.xp%200)/2+'%"></i></div>';
+
+function home(){
+  nav('home');
+  const p=seen.size/W.length,C=2*Math.PI*52,wd=W[Math.floor(Date.now()/864e5)%W.length];
+  let lo='<option value="0"'+(S.lvl===0?' selected':'')+'>كل الكلمات (1000)</option>';
+  for(let k=1;k<=10;k++)lo+='<option value="'+k+'"'+(S.lvl===k?' selected':'')+'>المستوى '+k+' (الكلمات '+((k-1)*100+1)+' إلى '+k*100+')</option>';
+  R.innerHTML='<section class="hero"><i class="b b1"></i><i class="b b2"></i><h1 class="mark">Inaro<br>English</h1>'+
+  '<div class="ring"><svg viewBox="0 0 120 120"><circle class="rt" cx="60" cy="60" r="52"/><circle id="rp" class="rf" cx="60" cy="60" r="52" stroke-dasharray="'+C+'" stroke-dashoffset="'+C+'"/></svg><div><b>'+Math.round(p*100)+'%</b><small>'+seen.size+' من '+W.length+'</small></div></div>'+
+  '<div class="chips"><span>🔥 '+strk()+' يوم</span><span>⭐ '+S.xp+' XP</span><span>🏅 '+ttl()+'</span></div>'+
+  '<div class="bar"><i style="width:'+(S.xp%200)/2+'%"></i></div>'+
+  '<select class="lv" aria-label="المستوى" onchange="S.lvl=+this.value;S.pos=0;save()">'+lo+'</select><button class="go" onclick="cards()">ابدأ التعلم</button></section>'+
+  '<div class="sc" id="sc">'+chain()+'</div><div class="wod"><div><small>كلمة اليوم</small><p>'+wd[0]+'</p><span>'+wd[1]+'</span></div><button aria-label="نطق" data-t="'+wd[0]+'" onclick="say(this.dataset.t)">🔊</button></div>'+
+  '<div class="row"><button class="ghost" onclick="S.auto=!S.auto;save();home()">النطق التلقائي: '+(S.auto?'يعمل':'متوقف')+'</button><button class="ghost" onclick="lessons()">📖 دروس ومحادثة</button></div>'+
+  (sup?'<p class="note">إذا لم تسمع صوتاً: ارفع الصوت وتأكد أن الجوال ليس على الصامت.</p>':'<p class="note">النطق غير مدعوم هنا. افتح الرابط في Chrome أو Safari.</p>');
+  setTimeout(()=>{const r=$('rp');if(r)r.style.strokeDashoffset=C*(1-p)},80);
+}
+
+function cards(){nav('cards');setPool();if(S.pos>=pool.length)S.pos=0;draw(1)}
+function flip(){$('fl').classList.toggle('on')}
+function draw(f){
+  const i=pool[S.pos],w=W[i],isNew=!seen.has(i);seen.add(i);touch();
+  R.innerHTML=hd('بطاقات المفردات')+'<div class="fl'+(f?' sl':'')+'" id="fl" onclick="flip()"><div class="in"><div class="face"><p class="en">'+w[0]+'</p>'+sn(i)+'<p class="hint">اضغط لرؤية المعنى</p></div><div class="face b"><p class="ar">'+w[1]+'</p>'+sn(i)+'</div></div></div>'+
+  '<div class="dots"><i style="width:'+(S.pos+1)/pool.length*100+'%"></i></div><p class="pos">'+(S.pos+1)+' / '+pool.length+'</p>'+
+  '<div class="row"><button class="ghost" onclick="say(W[pool[S.pos]][0])">🔊 نطق</button><button class="ghost" onclick="say(W[pool[S.pos]][0],1)">🐢 بطيء</button><button class="ghost" id="fv" aria-label="مفضلة" onclick="fav()">'+(favs.has(i)?'⭐':'☆')+'</button></div>'+
+  '<div class="row"><button class="btn" onclick="mv(-1)">السابقة</button><button class="btn" onclick="mv(1)">التالية</button></div><p class="note">اسحب البطاقة لليمين أو اليسار للتنقل</p>';
+  const el=$('fl');let x0=null;
+  el.ontouchstart=e=>{x0=e.touches[0].clientX};
+  el.ontouchend=e=>{if(x0===null)return;const d=e.changedTouches[0].clientX-x0;x0=null;if(Math.abs(d)>60){e.preventDefault();mv(d<0?1:-1)}};
+  if(isNew)xp(1,el);save();if(f&&S.auto)say(w[0]);
+}
+function mv(d){S.pos=(S.pos+d+pool.length)%pool.length;draw(1)}
+function fav(){const i=pool[S.pos];if(favs.has(i))favs.delete(i);else{favs.add(i);beep(880);vib(10)}save();$('fv').textContent=favs.has(i)?'⭐':'☆'}
+
+let q={};
+function quizMenu(){
+  nav('quiz');setPool();
+  R.innerHTML=hd('الاختبار')+'<div class="opts"><button class="opt" onclick="startQuiz(0)">🎓 ما معنى الكلمة؟</button><button class="opt" onclick="startQuiz(1)">✍️ ما الكلمة بالإنجليزي؟</button><button class="opt" onclick="startQuiz(2)">🎧 استمع واختر الكلمة</button><button class="opt" onclick="startQuiz(3)">🧩 أكمل الجملة</button></div><p class="note">كل إجابة صحيحة تعطيك 10 نقاط XP، والإجابات المتتالية تعطيك مكافأة. الأسئلة من المستوى المختار.</p>';
+}
+function startQuiz(m){setPool();if(m===3&&pool.filter(i=>SEN[i]).length<4){toast('الجمل متوفرة حالياً في المستوى 1 فقط');return}q={m:m,n:0,s:0,st:0,g:0,w:null,o:[]};nextQ()}
+function nextQ(){
+  if(q.n>=10){
+    const g=q.s>=9?'ممتاز! 🏆':q.s>=7?'أحسنت! 👏':q.s>=5?'جيد، كمّل 💪':'حاول مرة ثانية';
+    R.innerHTML=hd('النتيجة')+'<div class="card sl"><p class="big">نتيجتك '+q.s+' من 10</p><p class="ar">'+g+'</p><p class="hint">كسبت '+q.g+' XP</p></div><div class="row"><button class="btn" onclick="startQuiz(q.m)">جولة جديدة</button><button class="btn no" onclick="quizMenu()">الاختبارات</button></div>';
+    if(q.s>=7){tone(true);confetti(130)}
+    return;
+  }
+  const P=q.m===3?pool.filter(i=>SEN[i]):pool;q.i=P[Math.random()*P.length|0];q.w=W[q.i];
+  const k=q.m===0?1:0,sv=new Set([q.w[k]]),wr=[];
+  for(const j of shuffle(P)){const v=W[j][k];if(!sv.has(v)){sv.add(v);wr.push(W[j])}if(wr.length===3)break}
+  q.o=shuffle([q.w].concat(wr));
+  const head=q.m===3?'<p class="sn" style="font-size:22px;color:var(--ink)">'+SEN[q.i].replace(rx(q.i),'_____')+'</p>':q.m===0?'<p class="en">'+q.w[0]+'</p>':q.m===1?'<p class="ar">'+q.w[1]+'</p>':'<p class="hint">استمع ثم اختر الكلمة</p>';
+  R.innerHTML=hd('الاختبار')+'<div class="dots"><i style="width:'+q.n*10+'%"></i></div><div class="card sl"><p class="hint">السؤال '+(q.n+1)+' من 10'+(q.st>1?'  🔥 '+q.st+' متتالية':'')+'</p>'+head+'<button class="ghost" style="flex:none;margin-top:10px;padding:8px 18px" onclick="say(q.w[0])">🔊</button></div><div class="opts">'+q.o.map((o,i)=>'<button class="opt" onclick="pick('+i+')">'+o[k]+'</button>').join('')+'</div>';
+  if(S.auto&&(q.m===0||q.m===2))say(q.w[0]);
+}
+function pick(i){
+  const bs=document.querySelectorAll('.opt'),ok=q.o[i]===q.w;
+  bs.forEach((b,j)=>{b.disabled=true;if(q.o[j]===q.w)b.classList.add('ok')});
+  if(ok){q.s++;q.st++;const g=10+(q.st>=3?5:0);q.g+=g;xp(g,bs[i]);vib(15);if(q.st>=3)confetti(40)}else{q.st=0;bs[i].classList.add('bad');vib([40,40,40])}
+  tone(ok);if(S.auto&&q.m===1)say(q.w[0]);if(S.auto&&q.m===3)say(SEN[q.i]);
+  q.n++;setTimeout(nextQ,1100);
+}
+
+let m={};
+function game(){
+  nav('game');setPool();
+  const a=shuffle(pool).slice(0,6);m={sel:null,d:0,mv:0};
+  const col=s=>shuffle(a).map(i=>'<button class="mt" data-i="'+i+'" data-s="'+s+'" onclick="mt(this)">'+W[i][s]+'</button>').join('');
+  R.innerHTML=hd('لعبة التوصيل')+'<p class="note">اضغط الكلمة ثم معناها. عدد الحركات: <b id="mm">0</b></p><div class="mg sl"><div>'+col(0)+'</div><div>'+col(1)+'</div></div>';
+}
+function mt(b){
+  if(b.classList.contains('gone'))return;
+  const s=m.sel;
+  if(!s){m.sel=b;b.classList.add('sel');if(b.dataset.s==='0')say(W[b.dataset.i][0]);return}
+  if(s===b){b.classList.remove('sel');m.sel=null;return}
+  if(s.dataset.s===b.dataset.s){s.classList.remove('sel');b.classList.add('sel');m.sel=b;return}
+  m.mv++;$('mm').textContent=m.mv;m.sel=null;
+  if(s.dataset.i===b.dataset.i){
+    [s,b].forEach(e=>{e.classList.remove('sel');e.classList.add('gone')});tone(true);vib(15);xp(5,b);
+    if(++m.d===6)setTimeout(()=>{confetti(140);xp(30);R.innerHTML=hd('أحسنت!')+'<div class="card sl"><p class="big">أنهيتها في '+m.mv+' حركات</p><p class="ar">'+(m.mv<=8?'ذاكرة خارقة 🧠':'عمل رائع 👏')+'</p><p class="hint">كسبت 60 XP</p></div><div class="row"><button class="btn" onclick="game()">جولة جديدة</button></div>'},600);
+  }else{
+    [s,b].forEach(e=>{e.classList.remove('sel');e.classList.add('bad')});tone(false);vib([40,40,40]);setTimeout(()=>[s,b].forEach(e=>e.classList.remove('bad')),500);
+  }
+}
+
+let rc=0;
+const tg=k=>{S[k]=S[k]===false;save();opts()};
+function opts(){
+  nav('set');
+  const on=k=>S[k]!==false?'يعمل':'متوقف',st='style="width:100%;margin-bottom:10px"',b=(k,l)=>'<button class="ghost" '+st+' onclick="tg(\''+k+'\')">'+l+': '+on(k)+'</button>',
+  rt={0.7:'بطيء',0.9:'عادي',1.1:'سريع'},th={'':'تلقائي',light:'فاتح',dark:'ليلي'};
+  R.innerHTML=hd('الخيارات')+b('auto','النطق التلقائي')+b('sen','عرض الجمل')+b('snd','الأصوات')+b('vib','الاهتزاز')+
+  '<button class="ghost" '+st+' onclick="S.rate=S.rate===0.7?0.9:S.rate===0.9?1.1:0.7;save();opts();say(\'Hello\')">سرعة النطق: '+rt[S.rate||0.9]+'</button>'+
+  '<button class="ghost" '+st+' onclick="S.theme=S.theme===\'light\'?\'dark\':S.theme===\'dark\'?\'\':\'light\';applyTheme();save();opts()">المظهر: '+th[S.theme||'']+'</button>'+
+  '<button class="btn no" style="width:100%" onclick="rs()">'+(rc?'اضغط مرة ثانية لتأكيد المسح':'مسح كل التقدم')+'</button>';
+}
+function rs(){if(!rc){rc=1;opts();setTimeout(()=>{rc=0},4000);return}seen.clear();favs.clear();S.xp=0;S.streak=0;S.lastTs=0;S.pos=0;rc=0;save();opts();toast('تم مسح التقدم')}
+let lq='',lf='all';
+function list(){
+  nav('list');setPool();
+  R.innerHTML=hd('كل الكلمات')+'<input placeholder="ابحث بالإنجليزي أو العربي" value="'+lq+'" oninput="lq=this.value;rows()"><select class="f" id="lf" style="width:100%;padding:12px;margin-bottom:10px;border-radius:12px;border:2px solid var(--line);background:var(--card)" onchange="lf=this.value;rows()"><option value="all">كل الكلمات</option><option value="f">⭐ المفضلة</option></select><div id="rows"></div>';
+  $('lf').value=lf;rows();
+}
+function rows(){
+  const t=lq.trim().toLowerCase();
+  let l=pool.filter(i=>(lf==='all'||favs.has(i))&&(!t||W[i][0].toLowerCase().includes(t)||W[i][1].includes(t)));
+  const n=l.length;l=l.slice(0,150);
+  $('rows').innerHTML=(l.map(i=>'<div class="dl"><b>'+W[i][0]+'</b><span>'+W[i][1]+'</span><button aria-label="مفضلة" onclick="tf('+i+')">'+(favs.has(i)?'⭐':'☆')+'</button><button aria-label="نطق" data-t="'+W[i][0]+'" onclick="say(this.dataset.t)">🔊</button></div>').join('')+(n>150?'<p class="hint">يعرض أول 150 من '+n+'. استخدم البحث.</p>':''))||'<p class="hint">لا توجد نتائج.</p>';
+}
+function tf(i){if(favs.has(i))favs.delete(i);else favs.add(i);save();rows()}
+function lessons(){
+  nav('home');
+  R.innerHTML=hd('الدروس')+G.map(g=>'<details><summary>'+g[0]+'</summary><p class="ex">'+g[1]+'</p><p class="hint">'+g[2]+'</p></details>').join('')+
+  '<details open><summary>محادثة: التعارف</summary>'+D.map(d=>'<div class="dlg"><div><b>'+d[0]+'</b><small>'+d[1]+'</small></div><button aria-label="نطق" data-t="'+d[0]+'" onclick="say(this.dataset.t)">🔊</button></div>').join('')+'</details>';
+}
+applyTheme();save();home();try{if("serviceWorker" in navigator)navigator.serviceWorker.register("sw.js")}catch(e){}setInterval(()=>{const e=$('sc');if(e)e.innerHTML=chain()},30000);
+</script>
+</body>
+</html>
